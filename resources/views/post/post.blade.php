@@ -1,6 +1,45 @@
 @extends('layout.master')
 @section('content')
 <div class="container">
+  <h2>Upload Post</h2>
+  <div class="row mb-5">
+      <div class="col-sm-12">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if(Session::has('success'))
+          <div class="alert alert-success">
+                 {{ session('success') }}
+          </div>
+        @endif
+          <form action="{{ route('user.post.store',[$userPost->id])}}" method="POST">
+            @csrf 
+              <div class="form-group">
+                <label for="email">Title</label>
+                <input class="form-control" 
+                          name="title"
+                          placeholder="title" 
+                          id="description" />
+              </>
+              <div class="form-group">
+                <label for="email">Comment</label>
+                <textarea class="form-control" 
+                          name="description"
+                          placeholder="Comment" 
+                          id="description"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Comment</button>
+          </form>
+      </div>
+  </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-sm-12">
             <h2>Post List</h2>          
@@ -13,8 +52,8 @@
               <thead>
                 <tr>
                   <th>SN.</th>
-                  <th>Name</th>
-                  <th>Email</th>
+                  <th>Title</th>
+                  <th>Description</th>
                   <th>Created at</th>
                   <th>Action</th>
                 </tr>

@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Model\Role;
 
 class User extends Authenticatable {
     use Notifiable;
+    
 
     /**
     * The attributes that are mass assignable.
@@ -46,6 +49,9 @@ class User extends Authenticatable {
         return $this->hasOneThrough('App\Post', 'App\Comment');
     }
 
+
+
+    
     public function userPostComment()
     {
         return $this->hasManyThrough('App\Comment',
@@ -53,5 +59,13 @@ class User extends Authenticatable {
                                      'user_id',
                                      'post_id',
                                     );
+    }
+
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class,'user_role',
+        'user_id',
+        'roll_id');
     }
 }

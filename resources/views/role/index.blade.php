@@ -3,14 +3,10 @@
 <div class="container">
     <div class="row mt-5 mb-5">
       <div class="col-sm-12">
-        <a href="{{ route('index') }}" class="btn btn-success">All Users</a>&nbsp;
-        <a href="{{ route('user.user-has-post') }}" class="btn btn-success">Users Has Post</a>
-        <a href="{{ route('user.user-does-not-have-post-comment') }}" 
-           class="btn btn-success">Users Does Not Post Comment</a>
-
-        <a href="{{ route('user.user-has-post-comment') }}" 
-           class="btn btn-success">Users Has Post Comment</a>
-           
+          <p>
+              Here we will practice Many To Many relationship.
+          </p>
+       @include('role.component.header')
       </div>
     </div>
     <div class="row">
@@ -38,9 +34,7 @@
                       <td>{{ $user->name}}</td>
                       <td>{{ $user->email }}</td>
                       <td>{{ $user->created_at}}</td>
-                      <th><a href="{{ route('user.post',[$user->id])}}">Post</a></th>
-                      <th><a href="{{ route('user.delete',[$user->id])}}">Delete</a></th>
-                      <th><a href="{{ route('user.comment',[$user->id])}}">Uses Comment</a></th>
+                      <th><a href="{{route('user.role.show-role',[$user->id])}}">Role</a></th>
                   </tr>
                   @empty
                   <tr>

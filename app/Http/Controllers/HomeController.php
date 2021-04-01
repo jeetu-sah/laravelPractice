@@ -14,8 +14,26 @@ class HomeController extends Controller {
     public $varArr = ['failed_jobs',  'migrations', 'users'];
 
     public function index() {
-        $data['title'] = 'Users List';
+        $data['title'] = 'All Users List';
         $data['users'] = User::paginate( 10 );
+        return view( 'index' )->with( $data );
+    }
+
+
+    # user has post display all users
+    public function userHasPost(){
+        $data['title'] = 'Users Has Post';
+        $data['users'] = User::whereHas('posts')->paginate( 10 );
+        return view( 'index' )->with( $data );
+    }
+
+    # users has ppost comment
+    public function userHasPostComment(){
+        $data['title'] = 'Users Post Has Post';
+        //$data['users'] = User::whereHas('userPostComment')->paginate( 10 );
+        $data['users'] = User::has('userPostComment')->paginate( 10 );
+        //echo "<pre>";
+        //print_r($data['users']);exit;
         return view( 'index' )->with( $data );
     }
 
@@ -78,7 +96,7 @@ class HomeController extends Controller {
     }
 
     public function userComment( $id ) {
-        //Has One Through relationship
+        //Has many Through relationship
         $data['title'] = 'User comments';
         $data['userData'] = User::with( ['userPostComment'] )->find( $id );
         //echo '<pre>';
