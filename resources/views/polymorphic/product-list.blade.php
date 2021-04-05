@@ -28,9 +28,7 @@
               </thead>
               <tbody>
                   @forelse ($products as $product)
-                    @php
-                        $images = $product->image;
-                    @endphp
+                    @php $images = $product->image;  @endphp
                   <tr>
                       <td>{{ $loop->iteration}}</td>
                       <td>
