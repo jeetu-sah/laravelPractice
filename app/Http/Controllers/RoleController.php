@@ -68,10 +68,11 @@ class RoleController extends Controller
         $data['title'] = 'Users roles';
         $data['roles'] = Role::all();
         $data['userRoles'] = User::find($id);
-
+        $userRole = $data['userRoles']->roles->pluck('id');
         //$data['userDoesNotHaveRole'] = User::whereDoesntHave('roles')->get();
-        //echo "<pre>";
-        //print_r($data['userRoles']->roles);exit;
+        $data['userNotHaveRole'] = $data['roles']->whereNotIn('id',$userRole);
+        // echo "<pre>";
+        // print_r($data['userNotHaveRole']);exit;
         $data['user_id'] = $id;
         return view( 'role.assign-user-role' )->with( $data );
     }

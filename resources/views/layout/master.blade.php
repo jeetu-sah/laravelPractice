@@ -42,6 +42,16 @@
         <a class="dropdown-item" href="#">Link 3</a>
       </div>
     </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Polymorphism RelationShip
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{{ route('polymorphic.index')}}">Products</a>
+        <a class="dropdown-item" href="{{ route('user.role.index')}}">Service</a>
+        <a class="dropdown-item" href="#">Images</a>
+      </div>
+    </li>
   </ul>
 </nav>
     @yield('content')

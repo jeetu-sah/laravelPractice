@@ -32,7 +32,6 @@ Route::prefix('user/')->name('user.')->group(function(){
       Route::get('/user-does-not-have-post-comment','UserController@userDoesNotHavePostComment')
                                  ->name('user-does-not-have-post-comment');
 
-
     Route::prefix('post')->name('post.')->group(function(){
         Route::get('/','PostController@index')->name('index');
        Route::post('/store/{userid}','PostController@store')->name('store');
@@ -49,4 +48,10 @@ Route::prefix('user/')->name('user.')->group(function(){
     });
 
 
+});
+//post controller
+Route::prefix('polymorphic-relationships/')->name('polymorphic.')->group(function(){
+    Route::get('/','Relationship\PolymorphicController@index')->name('index');
+    Route::get('/image/{id}','Relationship\PolymorphicController@image')->name('image');
+    Route::post('/upload-image/{id}','Relationship\PolymorphicController@uploadImage')->name('upload-image');
 });

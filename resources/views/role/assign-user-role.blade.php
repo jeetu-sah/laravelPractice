@@ -33,7 +33,7 @@
           <br />
         </div>
         <div class="row">
-          @foreach ($roles as $role)
+          @foreach ($userNotHaveRole as $role)
             <div class="col-sm-3 mt-2">
               <input type="checkbox" 
                     name="role[]" id="role"
