@@ -55,3 +55,11 @@ Route::prefix('polymorphic-relationships/')->name('polymorphic.')->group(functio
     Route::get('/image/{id}','Relationship\PolymorphicController@image')->name('image');
     Route::post('/upload-image/{id}','Relationship\PolymorphicController@uploadImage')->name('upload-image');
 });
+
+
+//chart controller
+Route::prefix('chart')->name('chart.')->group(function(){
+    Route::get('/', 'Admin\ChartController@index');
+   
+});
+

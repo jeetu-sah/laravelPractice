@@ -18,8 +18,8 @@ class PolymorphicController extends Controller {
         $data['title'] = 'Products List | Polymorphic Relationship';
         $data['products'] = Products::paginate( 20 );
         // echo '<pre>';
-        // print_r( $products );
-        //exit;
+        // print_r($data['products'] );
+        // exit;
         return view( 'polymorphic.product-list' )->with( $data );
     }
 

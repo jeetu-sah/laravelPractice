@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Queue;
+use ConsoleTVs\Charts\Registrar as Charts;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,8 +23,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Charts $charts)
     {
+
+        $charts->register([
+            \App\Charts\SampleChart::class
+        ]);
+        
        Queue::after(function (JobProcessed $event) {
             $event->job;
         // $event->connectionName
