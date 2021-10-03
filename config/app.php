@@ -177,7 +177,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
-
+        JsWebsolutions\ToDoPackage\Providers\TodolistServiceProvider::class,
     ],
 
     /*
@@ -232,6 +232,7 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        
 
     ],
 

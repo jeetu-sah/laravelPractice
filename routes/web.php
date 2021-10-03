@@ -24,7 +24,7 @@ Route::get('user/user-has-post','HomeController@userHasPost')->name('user.user-h
 Route::get('user/user-has-post-comment','HomeController@userHasPostComment')->name('user.user-has-post-comment');
 
 Route::get('user/post/comment/{id}','HomeController@comment')->name('user.post.comment');
-Route::post('user/post/comment/{id}','HomeController@commentStore')->name('user.post.comment');
+//Route::post('user/post/comment/{id}','HomeController@commentStore')->name('user.post.comment');
 
 //post controller
 Route::prefix('user/')->name('user.')->group(function(){
