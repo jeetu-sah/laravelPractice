@@ -10,7 +10,9 @@
 ## About This Project
 In this laravel application i have done lots of practice. 
 1. Laravel Relationship.
-2. Created Custom ToDoPackage 
-3. Laravel Repository pattern.
+2. Created Custom ToDoPackage  
+   https://github.com/jeetu-sah/laravelPractice/tree/main/packages/JsWebsolutions/ToDoPackage/src
+4. Laravel Repository pattern.
+   https://github.com/jeetu-sah/laravelPractice/tree/main/packages/JsWebsolutions/ToDoPackage/src/Repository
 
 
